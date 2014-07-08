@@ -1,0 +1,30 @@
+{
+  "name": "dehumanizer",
+  "version": "0.0.1",
+  "description": "A javascript library designed to help the computers understand the humans.",
+  "main": "gulpfile.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "mocha": "~1.20.1",
+    "gulp-rename": "~1.2.0",
+    "chai": "~1.9.1",
+    "gulp-uglify": "~0.3.1",
+    "gulp": "~3.8.5"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rwhitmire/dehumanizer.git"
+  },
+  "author": "Ryan Whitmire",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rwhitmire/dehumanizer/issues"
+  },
+  "homepage": "https://github.com/rwhitmire/dehumanizer"
+}
