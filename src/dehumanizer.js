@@ -55,9 +55,9 @@
 
 			for(var i = tokens.length; i >= 0; i--){
 				var token = tokens[i];
-				var numberValue = numvals[token];
+				var numberValue = parseNumber(token);
 
-				if(numberValue !== undefined){
+				if(numberValue){
 					val += numberValue;
 				}
 
@@ -65,16 +65,17 @@
 
 				if(multiplierValue !== undefined){
 					var previousToken = tokens[i - 1];
-					var previousNumberValue = numvals[previousToken];
-
+					var previousNumberValue = parseNumber(previousToken);
 					var multipliedValue = multiplierValue * previousNumberValue;
-					val += multipliedValue;
+
+					if(multipliedValue){
+						val += multipliedValue;
+					}
 
 					i--;
 				}
 			}
 
-			// var val = numvals[humanValue];
 			return val || NaN;
 		};
 
@@ -84,6 +85,16 @@
 
 		return this;
 	};
+
+	function parseNumber(token){
+		var num = parseInt(token);
+
+		if(num){
+			return num;
+		}
+
+		return numvals[token];
+	}
 
 	// Node.js
 	if (typeof module !== 'undefined' && module.exports) {
