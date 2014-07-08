@@ -50,12 +50,31 @@
 		};
 
 		this.toNumber = function(){
-
+			var val = 0;
 			var tokens = humanValue.split(' ');
 
-			
+			for(var i = tokens.length; i >= 0; i--){
+				var token = tokens[i];
+				var numberValue = numvals[token];
 
-			var val = numvals[humanValue];
+				if(numberValue !== undefined){
+					val += numberValue;
+				}
+
+				var multiplierValue = multipliers[token];
+
+				if(multiplierValue !== undefined){
+					var previousToken = tokens[i - 1];
+					var previousNumberValue = numvals[previousToken];
+
+					var multipliedValue = multiplierValue * previousNumberValue;
+					val += multipliedValue;
+
+					i--;
+				}
+			}
+
+			// var val = numvals[humanValue];
 			return val || NaN;
 		};
 
